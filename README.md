@@ -23,8 +23,8 @@ Snakemake workflow language was used as a
 
 
 ## Contributors
-*Immaculate Nahereza
-.Jane Njeri
+Immaculate Nahereza
+. Jane Njeri
 .Winfred Gatua 
 .Nsangi Olga Tendo,
 .Davis Kiberu 
