@@ -17,3 +17,16 @@ Snakemake workflow language was used as a
 ### Objective
 * To create a variant calling pipeline for Lablab purpureus.
 * To convert the pipeline into a portable and reproducible workflow using Snakemake language.
+
+
+
+
+
+## Contributors
+.Immaculate Nahereza
+.Jane Njeri
+.Winfred Gatua 
+.Nsangi Olga Tendo,
+.Davis Kiberu 
+.Nsubuga Moses 
+.Eneza Yoel
