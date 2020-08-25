@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 29 of /home/user6/Mini-project-group-06/Snakefile:
+Missing input files for rule sam_sorting1:
+Analyses/minimap2_mapping/X_nanopore_runs1234.sam
