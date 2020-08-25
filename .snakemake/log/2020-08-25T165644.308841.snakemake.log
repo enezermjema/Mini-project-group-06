@@ -1,0 +1,5 @@
+Building DAG of jobs...
+ChildIOException:
+File/directory is a child to another output:
+/home/user6/Mini-project-group-06/Analyses/nanoqc_report/X_nanopore_runs1234
+/home/user6/Mini-project-group-06/Analyses/nanoqc_report/X_nanopore_runs1234/NanoQC.log
