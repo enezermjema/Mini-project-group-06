@@ -1,0 +1,12 @@
+Building DAG of jobs...
+AmbiguousRuleException:
+Rules svc_metrics and VC_metrics are ambiguous for the file Analyses/Illumina_variants/SV_sniffles/X_nanopore_runs1234.vcf_stats.txt.
+Consider starting rule output with a unique prefix, constrain your wildcards, or use the ruleorder directive.
+Wildcards:
+	svc_metrics: sample=X_nanopore_runs1234
+	VC_metrics: sample=SV_sniffles/X_nanopore_runs1234
+Expected input files:
+	svc_metrics: Analyses/Illumina_variants/SV_sniffles/X_nanopore_runs1234_sniffles_sv.vcf
+	VC_metrics: Analyses/Illumina_variants/SV_sniffles/X_nanopore_runs1234.vcfExpected output files:
+	svc_metrics: Analyses/Illumina_variants/SV_sniffles/X_nanopore_runs1234.vcf_stats.txt
+	VC_metrics: Analyses/Illumina_variants/SV_sniffles/X_nanopore_runs1234.vcf_stats.txt

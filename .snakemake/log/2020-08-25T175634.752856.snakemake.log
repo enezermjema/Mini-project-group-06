@@ -1,0 +1,3 @@
+NameError in line 11 of /home/user6/Mini-project-group-06/Snakefile:
+name 'SAMPLES' is not defined
+  File "/home/user6/Mini-project-group-06/Snakefile", line 11, in <module>
