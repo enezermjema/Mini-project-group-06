@@ -4,8 +4,11 @@ SAMPLES, = glob_wildcards("Data/{sample}.fastq")
 Illumina_ref = "Data/Lablab_ref/Lablab_purpureus_147D_AOCC.fa"
 Nanopore_ref = "Data/Lablab_ref/isaac_147D_flye2.7_hypo-polished_assembly_2020.fa"
 
+<<<<<<< HEAD
+=======
 # wildcard_constraints:
 #    seqfile = '\
+>>>>>>> a897bce9548d2a273e546f9ee9c04e47fe415e5f
 
 rule all:
 	input:
@@ -16,7 +19,7 @@ rule nanoqc:      # for the 147X
 	input: 
 		"Data/{sample}.fastq"
 	output: 
-		"Analyses/nanoqc_report/{sample}",
+		directory("Analyses/nanoqc_report/{sample}"),
 		touch("Analyses/nanoqc_logs/{sample}_NanoQC.log")
 	shell: 
 		"nanoQC -o {output[0]} {input}"
@@ -84,19 +87,57 @@ rule freebayes_vc:
 		
 		"""
 
-rule vc_metrics:
+
+
+# structural variant calling
+
+# mapping with ngmlr for Svc
+rule ngmlr_svc:
+	input: 
+		ref_illum = Illumina_ref,
+		ref_nanop = Nanopore_ref,
+		READS = "Analyses/trimmed_reads/{sample}_trimmed.fastq"
+	output: 
+		"Analyses/ngmlr_mapping/illumina/{sample}_ngmlr_mapped.sam",
+		"Analyses/ngmlr_mapping/nanopore/{sample}_ngmlr_mapped.sam"
+	threads: 4
+	shell: 
+		"""
+		ngmlr -t {threads} -r {input.ref_illum}  -q {input.READS} -o {output[0]} -x ont
+		ngmlr -t {threads} -r {input.ref_nanop}  -q {input.READS} -o {output[1]} -x ont
+		"""
+
+
+rule sam_sorting2:              # samtools sort and samtools index  -> sam file to indexed bam
 	input:
-		illum_vcf = "Analyses/variants/illumina/{sample}.vcf",
-		nanop_vcf = "Analyses/variants/nanopore/{sample}.vcf"
+		ref_illum = Illumina_ref,
+		ref_nanop = Nanopore_ref,
+		illum_fil = "Analyses/ngmlr_mapping/illumina/{sample}_ngmlr_mapped.sam",
+		nanop_fil = "Analyses/ngmlr_mapping/nanopore/{sample}_ngmlr_mapped.sam"
 	output:
-		"Analyses/variants/illumina/{sample}_stats.txt",
-		"Analyses/variants/nanopore/{sample}_stats.txt"
+		"Analyses/ngmlr_mapping/illumina/{sample}_ngmlr_mapped_sorted.bam",
+		"Analyses/ngmlr_mapping/nanopore/{sample}_ngmlr_mapped_sorted.bam"
+	threads: 4
 	shell:
 		"""
-		bgzip {input.illum_vcf} && tabix -p vcf {input.illum_vcf}.gz | rtg vcfstats > {output[0]}
-		bgzip {input.nanop_vcf} && tabix -p vcf {input.nanop_vcf}.gz | rtg vcfstats > {output[1]}
+		samtools sort -t {threads} -o {output[0]} --reference {input.ref_illum} {input.illum_fil}
+		samtools index {output[0]}
 
+		samtools sort -t {threads} -o {output[1]} --reference {input.ref_nanop} {input.nanop_fil}
+		samtools index {output[1]}
 		"""
+
+rule sniffles_svc:
+	input: 
+		illum_ba = "Analyses/ngmlr_mapping/illumina/{sample}_ngmlr_mapped_sorted.bam",
+		nanop_ba = "Analyses/ngmlr_mapping/nanopore/{sample}_ngmlr_mapped_sorted.bam"
+	output: 
+		"Analyses/variants/illumina/structural_variants/{sample}_sv.vcf",
+		"Analyses/variants/nanopore/structural_variants/{sample}_sv.vcf"
+	shell: 
+		"""
+<<<<<<< HEAD
+=======
 
 
 
@@ -148,11 +189,35 @@ rule sniffles_svc:
 		"Analyses/variants/nanopore/structural_variants/{sample}_sv.vcf"
 	shell: 
 		"""
+>>>>>>> a897bce9548d2a273e546f9ee9c04e47fe415e5f
 		sniffles  -m {input.illum_ba} -v {output[0]}
 		sniffles  -m {input.nanop_ba} -v {output[1]}
 		"""
 
 
+<<<<<<< HEAD
+# generating variants statistics 
+rule variants_stats:
+    input:
+        illum_vcf = "Analyses/variants/illumina/{sample}.vcf",
+        nanop_vcf = "Analyses/variants/nanopore/{sample}.vcf",
+        illum_sv = "Analyses/variants/illumina/structural_variants/{sample}_sv.vcf",
+        nanop_sv = "Analyses/variants/nanopore/structural_variants/{sample}_sv.vcf"
+    output:
+        "Analyses/variants/illumina/{sample}_stats.txt",
+        "Analyses/variants/nanopore/{sample}_stats.txt",
+        "Analyses/variants/illumina/structural_variants/{sample}_stats.txt",
+        "Analyses/variants/nanopore/structural_variants/{sample}_stats.txt"
+    shell:
+        """
+        rtg vcfstats {input[0]} > {output[0]}
+        rtg vcfstats {input[1]} > {output[1]}
+        rtg vcfstats {input[2]} > {output[2]}
+        rtg vcfstats {input[3]} > {output[3]}  
+        """
+
+
+=======
 rule sniff_sv_met:
 	input:
 		illum_vcf1 = "Analyses/variants/illumina/structural_variants/{sample}_sv.vcf",
@@ -263,3 +328,4 @@ rule StructuralVariant:
         Nanopore_SV = "Analyses/Variant_calling/sniffles_nanopore_{samples}.vcf"
     shell:
         "sniffles -m {input.Illumina_bam} -v {output.Illumina_SV}; sniffles -m {input.Nanopore_bam} -v {output.Nanopore_SV}"
+>>>>>>> a897bce9548d2a273e546f9ee9c04e47fe415e5f
