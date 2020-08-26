@@ -14,7 +14,7 @@ Raw sequence data called sample X generated from minION and two reference files 
 
 ## Pipeline
 
-Snakemake workflow language was used as a 
+Snakemake workflow language was used so as to have the pipeline portable and reproducible 
 
 
 
@@ -22,7 +22,7 @@ Snakemake workflow language was used as a
 * Immaculate Nahereza
 * Jane Njeri
 * Winfred Gatua 
-* Nsangi Olga Tendo,
+* Nsangi Olga Tendo
 * Davis Kiberu 
 * Nsubuga Moses 
 * Eneza Yoel
