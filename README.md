@@ -12,7 +12,7 @@ Lablab purpureus is a bean (family Fabaceae) commonly known as “lablab” whic
 
 ## Data
 
-Raw sequence data called sample X generated from minION and two reference files that is an Illumina-based and an Oxford Nanopore-based assemblies for accession 147D were provided.
+Raw sequence data called sample X generated from minION and two reference files that is an Illumina-based and an Oxford Nanopore-based assemblies for accession 147D were provided. The data can be downloaded from [here](https://hpc.ilri.cgiar.org/~jbaka/EANBiT-RT2020-project6/)
 
 ## Setting up conda environment
 
