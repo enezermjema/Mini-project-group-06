@@ -14,6 +14,47 @@ Lablab purpureus is a bean (family Fabaceae) commonly known as “lablab” whic
 
 Raw sequence data called sample X generated from minION and two reference files that is an Illumina-based and an Oxford Nanopore-based assemblies for accession 147D were provided.
 
+## Setting up conda environment
+
+. **Miniconda3**: A bootstrap version of Anaconda for python packages, to check if conda is installed
+
+`conda -v`
+
+If the version is not displayed then; then install (a 64bit system)
+
+`wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh `
+
+`sh Miniconda3-latest-Linux-x86_64.sh`
+
+Follow on-screen instructions until the installation is complete
+
+**NOTE: When asked to add conda_init , enter YES**
+
+Add conda to PATH
+
+`source ~/.bashrc `
+
+If the installation is successful, you should see a list of installed packages with
+
+`conda list`
+
+If the command cannot be found, add conda to PATH environment manually, open the bashrc file and add the export PATH command to the end of the file and save it.
+
+`sudo nano ~/.bashrc`
+
+`export PATH=~/miniconda3/bin:$PATH`
+
+## Usage:
+
+Create a virtual environment called *variant* 
+
+`conda env create --name variant --file config.yaml`
+
+Activate the environment 
+
+`source activate variant`
+
+
 ## Pipeline
 
 Snakemake workflow language was used so as to have the pipeline portable and reproducible 
