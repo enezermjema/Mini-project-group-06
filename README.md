@@ -16,6 +16,9 @@ Raw sequence data called sample X generated from minION and two reference files 
 
 Snakemake workflow language was used so as to have the pipeline portable and reproducible 
 
+## Software documentation in wiki pages following this link
+
+[wiki link] <https://github.com/enezermjema/Mini-project-group-06/wiki>
 
 
 ## Contributors
