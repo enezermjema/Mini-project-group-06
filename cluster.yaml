@@ -1,7 +1,7 @@
 __default__:
   partition: "batch"
   nodes: 1
-  ntasks: 1
+  ntasks: 15
   ncpus: 8
   job-name: "Variant"
   output: "slurm-%j-%x.out"
