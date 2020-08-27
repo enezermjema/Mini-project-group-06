@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 9 of /home/user6/Mini-project-group-06/Snakefile:
-Missing input files for rule porechop:
-Data/X_nanopore_runs1234.vcf.fastq
