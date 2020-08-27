@@ -48,7 +48,7 @@ If the command cannot be found, add conda to PATH environment manually, open the
 
 Create a virtual environment called *variant* 
 
-`conda env create --name variant --file config.yaml`
+`conda env create --name variant --file Config.yml`
 
 Activate the environment 
 
