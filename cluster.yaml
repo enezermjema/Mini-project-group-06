@@ -1,8 +1,6 @@
 __default__:
   partition: "batch"
-  nodes: 1
-  ntasks: 15
-  ncpus: 8
-  job-name: "Variant"
+  nodes: 4
+  ncpus: 4
   output: "slurm-%j-%x.out"
   error: "slurm-%j-%x.err"

@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 6 of /home/user6/Mini-project-group-06/Snakefile:
-Missing input files for rule all:
-Analyses/Illumina_variants/SV_sniff/X_nanopore_runs1234.vcf_stats.txt
