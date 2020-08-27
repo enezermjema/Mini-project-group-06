@@ -57,7 +57,9 @@ Activate the environment
 
 ## Pipeline
 
-Snakemake workflow language was used so as to have the pipeline portable and reproducible 
+Snakemake workflow language was used so as to have the pipeline portable and reproducible
+
+[pipeline link]<https://github.com/enezermjema/Mini-project-group-06/blob/master/Snakefile>
 
 ## Software documentation in wiki pages following this link
 
