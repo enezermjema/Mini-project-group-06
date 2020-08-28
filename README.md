@@ -16,17 +16,17 @@ Raw sequence data called SeqData_147D illumina based and SeqDataX Oxford Nanopor
 
 ## Setting up conda environment
 
-. **Miniconda3**: A bootstrap version of Anaconda for python packages, to check if conda is installed
+**Miniconda3**: A bootstrap version of Anaconda for python packages, to check if conda is installed:
 
 `conda -v`
 
-If the version is not displayed then; then install (a 64bit system)
+If the version is not displayed; then install (64bit system):
 
 `wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh `
 
 `sh Miniconda3-latest-Linux-x86_64.sh`
 
-Follow on-screen instructions until the installation is complete
+Follow on-screen instructions until the installation is complete.
 
 **NOTE: When asked to add conda_init , enter YES**
 
@@ -34,7 +34,7 @@ Add conda to PATH
 
 `source ~/.bashrc `
 
-If the installation is successful, you should see a list of installed packages with
+If the installation is successful, you should see a list of installed packages with:
 
 `conda list`
 
@@ -46,18 +46,18 @@ If the command cannot be found, add conda to PATH environment manually, open the
 
 ## Usage:
 
-Create a virtual environment called *variant* 
+Create a virtual environment called *variant*: 
 
 `conda env create --name variant --file Config.yml`
 
-Activate the environment 
+Activate the environment: 
 
 `source activate variant`
 
 
 ## Pipeline
 
-Snakemake workflow language was used so as to have the pipeline portable and reproducible
+Snakemake workflow language was used so as to have the pipeline portable and reproducible.
 
 [pipeline link]<https://github.com/enezermjema/Mini-project-group-06/blob/master/Snakefile>
 
