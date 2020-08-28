@@ -2,3 +2,5 @@ Data/X_nanopore_runs1234.fastq
 Data/Lablab_ref/*.fa
 Data/Lablab_ref/*.fai
 Analyses/
+slurm*
+.snakemake/

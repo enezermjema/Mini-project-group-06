@@ -12,7 +12,7 @@ Lablab purpureus is a bean (family Fabaceae) commonly known as “lablab” whic
 
 ## Data
 
-Raw sequence data called sample X generated from minION and two reference files that is an Illumina-based and an Oxford Nanopore-based assemblies for accession 147D were provided. The data can be downloaded from [here](https://hpc.ilri.cgiar.org/~jbaka/EANBiT-RT2020-project6/)
+Raw sequence data called SeqData_147D illumina based and SeqDataX Oxford Nanopore-based were provided. Also two reference files that is an Illumina-based and an Oxford Nanopore-based assemblies for accession 147D were provided. The data can be downloaded from [here](https://hpc.ilri.cgiar.org/~jbaka/EANBiT-RT2020-project6/)
 
 ## Setting up conda environment
 
@@ -57,7 +57,9 @@ Activate the environment
 
 ## Pipeline
 
-Snakemake workflow language was used so as to have the pipeline portable and reproducible 
+Snakemake workflow language was used so as to have the pipeline portable and reproducible
+
+[pipeline link]<https://github.com/enezermjema/Mini-project-group-06/blob/master/Snakefile>
 
 ## Software documentation in wiki pages following this link
 

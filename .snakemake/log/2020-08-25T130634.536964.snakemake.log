@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 43 of /home/user6/Mini-project-group-06/Snakefile:
-Missing input files for rule freebayes_vc:
-Analyses/minimap2_mapping/X_nanopore_runs1234.bam

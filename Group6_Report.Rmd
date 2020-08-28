@@ -1,0 +1,94 @@
+---
+title: "Variant Calling pipeline for Lab Lab"
+author: "Group 6"
+date: "26/08/2020"
+output: html_document
+---
+
+
+**Variant Calling for Lab Lab**
+
+
+
+
+**Variant calling** refers to the process of identifying a single or many nucleotides 
+or long stretches of DNA from a query that are different from the reference sequence.
+
+
+**Variant types**
+
+![](https://www.researchgate.net/publication/329379756/figure/fig1/AS:699918469562368@1543884975341/Some-types-of-variants-found-in-human-genomes-Variation-involving-one-or-a-few.jpg)
+
+
+
+
+Why Variant calling for Lab Lab?
+
+This process will enhance identification of molecular markers that can be exploited in increasing the productivity of this crop. 
+
+
+# Setting up the environment
+
+```
+conda create --name variant
+
+conda install snakemake
+
+# Linux based
+conda install python=3.6
+conda config --add channels bioconda
+conda config --add channels defaults
+conda config --add channels conda-forge
+conda install -y -c bioconda nanoqc
+conda install -y -c bioconda porechop
+conda install -y -c bioconda samtools
+conda install -y -c bioconda minimap2
+conda install -y -c bioconda ngmlr
+conda install -y -c bioconda freebayes
+conda install -y -c bioconda sniffles
+conda install -y -c bioconda snakemake
+conda install -y -c bioconda rtg-tools 
+
+
+```
+
+In running the pipeline a few things have to be changed in the snakefile including the name of the reference and the data location must be checked for consistency.
+
+# Output from the pipeline
+
+Quality control reports for the ONT reads.
+
+A DAG graph showing how the pipeline performs.
+<https://github.com/enezermjema/Mini-project-group-06/blob/master/dag.png>
+
+Some vcf file from structural variant calling and the statistics on the same.
+
+*NB:*
+
+Other variant calling processes are still running 
+
+
+**Future:**
+
+
+Need to polish up the pipeline and incorporate the assembly pipeline into the whole pipeline; running from assembly to variant calling.
+
+
+You may want to consider variant calling using different tools and algorithms and comparing their outputs.
+
+
+
+# Challenges faced
+
+. Due to limited computational power we could not succesfully perform reassembly of the 147D genomes.
+
+
+. Thus we requested our supervisors to provide us with existing assemblies for variant calling
+
+
+Minimap2 when used in mapping the long reads to illumina assembly
+it is unable to resolve the structural variants, missing string during structural variant calling by sniffles.
+
+To solve this we encourage use a long read mapper, *ngmlr* then pipe that into sniffles.
+
+
