@@ -20,7 +20,7 @@ Raw sequence data called SeqData_147D illumina based and SeqDataX Oxford Nanopor
 
 `conda -v`
 
-If the version is not displayed; then install (a 64bit system):
+If the version is not displayed; then install (64bit system):
 
 `wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh `
 
